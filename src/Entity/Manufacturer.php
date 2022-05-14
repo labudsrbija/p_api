@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /** a manufacturer
  * @ORM\Entity
@@ -23,21 +24,26 @@ class Manufacturer
     /** name of the manufacturer
      * @ORM\Column
      */
+    #[Assert\NotBlank]
     private string $name = '';
 
     /** description of manufacturer
      * @ORM\Column(type="text")
      */
+    #[Assert\NotBlank]
     private string $description = '';
 
     /** country code of manufacturer
      * @ORM\Column(length=3)
      */
+
+    #[Assert\NotBlank]
     private string $countryCode = '';
 
     /** date that manufacturer was listed
      * @ORM\Column(type="datetime")
      */
+    #[Assert\NotNull]
     private ?\DateTimeInterface $listedDate = null;
 
     /**

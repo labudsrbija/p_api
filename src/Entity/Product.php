@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /** a product
  * @ORM\Entity
@@ -24,24 +25,28 @@ class Product
      * the MPN (manufacturer part number) of the product
      * @ORM\Column
      */
+    #[Assert\NotNull]
     private ?string $mpn = null;
 
     /**
      * name of the product
      * @ORM\Column
      */
+    #[Assert\NotBlank]
     private string $name = '';
 
     /**
      * description of the product
      * @ORM\Column(type="text")
      */
+    #[Assert\NotBlank]
     private string $description = '';
 
     /**
      * date of the issue of the product
      * @ORM\Column(type="datetime")
      */
+    #[Assert\NotNull]
     private ?\DateTimeInterface $issueDate = null;
 
     /**
