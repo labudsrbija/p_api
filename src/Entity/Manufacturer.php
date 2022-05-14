@@ -15,7 +15,7 @@ class Manufacturer
      * id of the manufacturer
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @Column(type="integer")
+     * @ORM\Column Column(type="integer")
      */
     private ?int $id = null;
 
@@ -38,6 +38,14 @@ class Manufacturer
      * @ORM\Column(type="datetime")
      */
     private ?\DateTimeInterface $listedDate = null;
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     /**
      * @return string
