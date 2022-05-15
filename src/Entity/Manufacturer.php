@@ -10,7 +10,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 /** a manufacturer
  * @ORM\Entity
  */
-#[ApiResource]
+#[ApiResource(
+    collectionOperations: ['get', 'post'],
+    itemOperations: ['get', 'put', 'patch']
+)]
 class Manufacturer
 {
     /**
