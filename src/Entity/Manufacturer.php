@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /** a manufacturer
  * @ORM\Entity
@@ -28,7 +29,11 @@ class Manufacturer
     /** name of the manufacturer
      * @ORM\Column
      */
-    #[Assert\NotBlank]
+    #[
+        Assert\NotBlank,
+        Groups(['product.read'])
+
+    ]
     private string $name = '';
 
     /** description of manufacturer
